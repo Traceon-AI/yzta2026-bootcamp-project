@@ -23,7 +23,7 @@ Traceon-AI
 - **Uyum Skoru:** Yapay zeka analiziyle dökümanın mevzuata genel uyumluluk oranını yüzde bazında gösteren metrik.
 - **Kanıt Gösterimi (Açıklanabilir AI):** Yapay zekanın her tespiti için döküman içinden alıntı cümle ve sayfa numarasıyla kanıt sunması.  
 - **Çözüm Önerileri:** Tespit edilen eksik maddeler için yapay zeka tarafından otomatik üretilen düzeltici aksiyon önerileri.  
-- **PDF Raporu:** Dashboard üzerindeki analiz sonuçlarının ve önerilerin kurumsal bir PDF raporu olarak indirilebilmesi. 
+- **PDF Raporu:** Dashboard üzerindeki analiz sonuçlarının ve önerilerin kurumsal bir PDF raporu olarak indirilebilmesi. (Opsiyonel)
 
 ## Hedef Kitle
 KOBİ'ler, uyum danışmanları, iç denetim ve bilgi güvenliği ekipleri
@@ -35,7 +35,7 @@ https://github.com/orgs/Traceon-AI/projects/1
 # Sprint 1
 - **Backlog düzeni ve Story seçimleri**: Görev dağıtım mantığı için [tasks.md](./docs/tasks.md) — görevler rol ve müsaitlik durumuna göre dağıtıldı, detaylar sprint board'da.
 - **Daily Scrum**: [Sprint 1 Daily Scrum Kayıtları](docs/sprint-1-daily-scrum.md)
-- **Sprint board update**: https://github.com/orgs/Traceon-AI/projects/1
+- **Sprint board update**: https://github.com/orgs/Traceon-AI/projects/1 (For Eylül)
 - **Ürün Durumu**: [Ürün Durumu Raporu](./docs/sprint-1-product-status.md)
 - **Sprint Review**: [Sprint 1 Review](./docs/sprint-1-review.md)
 - **Sprint Retrospective:** [Sprint 1 Retrospective](./docs/sprint-1-retrospective.md)
