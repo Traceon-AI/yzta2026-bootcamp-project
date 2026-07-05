@@ -37,7 +37,7 @@ Kutucuklar GitHub'da işaretlenerek ilerleme takibi yapılabilir (`- [x]`).
 - [x] GDPR bilgi tabanı: `data/gdpr.json`, 15 madde (hedef 12-15 aşıldı)
       — Efnan Demircan
 - [x] KVKK bilgi tabanı: `data/kvkk.json`, 12 madde (hedef 10-12
-      karşılandı) *(hazırlayan teyit edilecek: Efnan/Ezgi)*
+      karşılandı) — Efnan Demircan
 
 ### Sprint 1 Kapanış Kanıtları
 - [x] Sprint Review (`docs/sprint-1-review.md`)
@@ -46,7 +46,7 @@ Kutucuklar GitHub'da işaretlenerek ilerleme takibi yapılabilir (`- [x]`).
 - [x] Ekran görüntüleri: Backend Swagger `/docs` (Hazırlayan: Eylül),
       Frontend (upload +
       analiz + sonuç ekranları) (Hazırlayan: Önder)
-- [x] Daily Scrum kanıtları `docs/daily-scrum/` altına eklenecek
+- [x] Daily Scrum kanıtları `docs/sprint-1-daily-scrum.md`
 
 ---
 
@@ -67,19 +67,19 @@ Kutucuklar GitHub'da işaretlenerek ilerleme takibi yapılabilir (`- [x]`).
 - [ ] Uçtan uca test: 1 örnek GDPR dokümanıyla pipeline'ı çalıştır
 
 ### Abdullah Önder Aksu — Frontend (+ Scrum Master)
-- [x] API sözleşmesi hazır (`docs/api-contract.md`) — okundu/onaylandı teyidi bekleniyor
-- [ ] Dosya yükleme ekranı (drag-drop veya basit input)
-- [ ] Regülasyon seçim bileşeni (GDPR / KVKK — şimdilik sadece GDPR aktif,
+- [x] API sözleşmesi hazır (`docs/api-contract.md`) — mock veri şemaya uygun geliştirildi
+- [x] Dosya yükleme ekranı (drag-drop veya basit input)
+- [x] Regülasyon seçim bileşeni (GDPR / KVKK — şimdilik sadece GDPR aktif,
       KVKK "yakında" olarak görünebilir)
-- [ ] Yükleniyor/işleniyor durumu (spinner, basit)
-- [ ] Sonuç tablosu iskeleti (madde adı, durum, kanıt alanı) — backend
+- [x] Yükleniyor/işleniyor durumu (spinner, basit)
+- [x] Sonuç tablosu iskeleti (madde adı, durum, kanıt alanı) — backend
       hazır olmadan sözleşmedeki örnek JSON'la (mock) çalış
-- [ ] (SM) Daily Scrum notlarının `docs/daily-scrum/` altına işlenmesini takip et
+- [ ] (SM) Daily Scrum notlarının `docs/sprint-2-daily-scrum.md` altına işlenmesini takip et
 
 ### Efnan Demircan — Bilgi Tabanı & Test
 *(GDPR bilgi tabanı Sprint 1'de erken tamamlandı — bkz. Sprint 1 bölümü)*
-- [ ] Test için 1-2 örnek İngilizce doküman hazırla (kurgusal/anonim
-      Privacy Policy) — **Eylül'ün pipeline testi için öncelikli**
+- [x] Test için 1-2 örnek İngilizce doküman hazırla (kurgusal/anonim
+      Privacy Policy) — **Eylül'ün pipeline testi için hazır**
 - [ ] GDPR maddelerini entegrasyon sırasında gözden geçir (Eylül'den geri
       bildirim gelirse hızlı düzeltme)
 
