@@ -11,9 +11,12 @@ karşılaştırma) henüz başlamadı — bu Sprint 2 kapsamında.
 
 - Kod: `main.py` ([repo linki eklenecek])
 - Endpoint'ler: `GET /regulations`, `POST /analyze` (mock cevap)
-- [ ] Çalışır halinin ekran görüntüsü eklenecek (`/docs` Swagger arayüzü
-      veya Postman/curl çıktısı) — **Eylül'den istenecek**
-
+- [x] Çalışır halinin ekran görüntüleri:
+  - [Swagger /docs arayüzü](./evidence/sprint-1/backend-swagger-docs.jpeg)
+    — `GET /regulations` ve `POST /analyze` endpoint'leri aktif
+  - [Uvicorn terminal çıktısı](./evidence/sprint-1/backend-uvicorn-terminal.jpeg)
+    — sunucu ayakta, `/docs` ve `/openapi.json` istekleri 200 OK
+    
 **Bilinen eksik / düzeltilecek:**
 - `/regulations` cevabındaki `article_count` değerleri (`gdpr: 14`,
   `kvkk: 11`) güncel değil, gerçek sayılar 15 ve 12. Sabit yazmak yerine
