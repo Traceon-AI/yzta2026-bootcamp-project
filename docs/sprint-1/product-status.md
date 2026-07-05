@@ -51,7 +51,7 @@ sayıları karşılandı. Test dokümanı da hazır.
   category, description, keywords, recommendation, source` alanlarını
   taşıyor — motorun regülasyon-agnostik çalışması için gerekli tutarlılık
   sağlanmış.
-- [x] Test dokümanı hazır: [`docs/privacy-policy-test.md`](./privacy-policy-test.md)
+- [x] Test dokümanı hazır: [`docs/privacy-policy-test.md`](../privacy-policy-test.md)
   — Sprint 2'deki pipeline testlerinde kullanılacak.
 
 ## Genel Değerlendirme
