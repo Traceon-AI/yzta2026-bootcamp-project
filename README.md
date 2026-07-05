@@ -37,6 +37,8 @@ https://github.com/orgs/Traceon-AI/projects/1
 - **Daily Scrum**: [Sprint 1 Daily Scrum Kayıtları](docs/sprint-1-daily-scrum.md)
 - **Sprint board update**: https://github.com/orgs/Traceon-AI/projects/1 (For Eylül)
 - **Ürün Durumu**: [Ürün Durumu Raporu](./docs/sprint-1-product-status.md)
+  ![FrontEnd Result](./docs/evidence/sprint-1/frontend-results-mock.jpeg)
+
 - **Sprint Review**: [Sprint 1 Review](./docs/sprint-1-review.md)
 - **Sprint Retrospective:** [Sprint 1 Retrospective](./docs/sprint-1-retrospective.md)
 
