@@ -84,7 +84,7 @@ Kutucuklar GitHub'da işaretlenerek ilerleme takibi yapılabilir (`- [x]`).
       bildirim gelirse hızlı düzeltme)
 
 ### Ezgi Yıldırım — Bilgi Tabanı & Test
-- [ ] GitHub collaborator davetini kabul et
+- [x] GitHub collaborator davetini kabul et
 - [ ] Test için örnek Türkçe (KVKK) doküman hazırla (kurgusal Aydınlatma
       Metni) — Sprint 3 KVKK entegrasyonuna hazırlık
 - [ ] Müsaitlik durumuna göre ek görev alımı (Sprint 2 ortasında netleşecek)
