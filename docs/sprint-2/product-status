@@ -1,0 +1,44 @@
+# Sprint 2 — Ürün Durumu
+
+Bu sayfa, Sprint 2 sonunda elimizde gerçekten ne olduğunu tek yerden
+gösterir.
+
+## Backend
+
+**Durum:** *(mock'tan gerçek pipeline'a geçiş ne kadar tamamlandı)*
+
+- Kod: `backend/`
+- Tamamlanan pipeline adımları: *(metin çıkarma / chunking / embedding /
+  benzerlik araması / LLM karşılaştırma — hangileri çalışıyor)*
+- [ ] Ekran görüntüleri / gerçek istek-cevap örneği:
+  - `docs/evidence/sprint-2/...`
+
+**Bilinen eksik / düzeltilecek:**
+-
+
+## Frontend
+
+**Durum:** *(gerçek API entegrasyonu yapıldı mı, mock kaldırıldı mı)*
+
+- Kod: `frontend/`
+- [ ] Ekran görüntüleri (gerçek veriyle çalışan akış):
+  - `docs/evidence/sprint-2/...`
+
+## Bilgi Tabanı / Test
+
+**Durum:**
+
+| İş | Durum |
+|---|---|
+| GDPR maddeleri entegrasyon sonrası gözden geçirme | |
+| KVKK test dokümanı (Türkçe Aydınlatma Metni) | |
+| Çapraz dil testi sonucu (TR metin ↔ EN madde) | |
+
+## Entegrasyon Testi (12-13 Temmuz)
+
+*Uçtan uca deneme sonucu: yükleme → analiz → sonuç akışı gerçek veriyle
+çalıştı mı? Ne kırıldı, ne düzeltildi:*
+
+## Genel Değerlendirme
+
+*Sprint 2 Bitiş Kriteri'ne göre neredeyiz, Sprint 3'e ne devrediyor:*

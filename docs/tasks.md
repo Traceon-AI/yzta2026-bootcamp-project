@@ -5,7 +5,7 @@ Kutucuklar GitHub'da işaretlenerek ilerleme takibi yapılabilir (`- [x]`).
 > **Not (Sprint 1 kapanışı):** Ekibin yoğun eforuyla, Sprint 2'de planlanan
 > bazı görevler (backend iskeleti, GDPR/KVKK veri dosyaları) Sprint 1
 > içinde erken tamamlandı. Bunlar `[x]` olarak işaretlidir.
-> Detay: `docs/sprint-1-review.md`
+> Detay: `docs/sprint-1/review.md`
 
 ## Sprint 1 (19 Haziran–5 Temmuz) — Fikir, Kapsam, Altyapı ✅ TAMAMLANDI
 
@@ -40,13 +40,13 @@ Kutucuklar GitHub'da işaretlenerek ilerleme takibi yapılabilir (`- [x]`).
       karşılandı) — Efnan Demircan
 
 ### Sprint 1 Kapanış Kanıtları
-- [x] Sprint Review (`docs/sprint-1-review.md`)
-- [x] Sprint Retrospective (`docs/sprint-1-retrospective.md`)
-- [x] Ürün Durumu (`docs/sprint-1-product-status.md`)
+- [x] Sprint Review (`docs/sprint-1/review.md`)
+- [x] Sprint Retrospective (`docs/sprint-1/retrospective.md`)
+- [x] Ürün Durumu (`docs/sprint-1/product-status.md`)
 - [x] Ekran görüntüleri: Backend Swagger `/docs` (Hazırlayan: Eylül),
       Frontend (upload +
       analiz + sonuç ekranları) (Hazırlayan: Önder)
-- [x] Daily Scrum kanıtları `docs/sprint-1-daily-scrum.md`
+- [x] Daily Scrum kanıtları `docs/sprint-1/daily-scrum.md`
 
 ---
 

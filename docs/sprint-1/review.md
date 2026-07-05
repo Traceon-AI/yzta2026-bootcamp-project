@@ -39,9 +39,9 @@ uca birlikte test edilmemiştir.
 - Frontend'in gerçek API'ye bağlanması (mock verinin kaldırılması)
   Sprint 2 kapsamındadır.
 - `/regulations` endpoint'indeki madde sayıları güncellenmelidir (bkz.
-  `docs/sprint-1-product-status.md` — ilgili issue açıldı).
+  `docs/sprint-1/product-status.md` — ilgili issue açıldı).
 
 ## Kanıtlar
-- Ekran görüntüleri: `docs/evidence/sprint-1/`
-- Ürün durumu detayı: `docs/sprint-1-product-status.md`
-- Daily Scrum kayıtları: `docs/sprint-1-daily-scrum.md`
+- Ekran görüntüleri: `docs/sprint-1/evidence/`
+- Ürün durumu detayı: `docs/sprint-1/product-status.md`
+- Daily Scrum kayıtları: `docs/sprint-1/daily-scrum.md`

@@ -12,9 +12,9 @@ iskelet hazır ve çalışır halde doğrulandı. Gerçek RAG pipeline
 - Kod: `backend/main.py` (ana branch'te)
 - Endpoint'ler: `GET /regulations`, `POST /analyze` (mock cevap)
 - [x] Çalışır halinin ekran görüntüleri:
-  - [Swagger /docs arayüzü](./evidence/sprint-1/backend-swagger-docs.jpeg)
+  - [Swagger /docs arayüzü](./evidence/backend-swagger-docs.jpeg)
     — `GET /regulations` ve `POST /analyze` endpoint'leri aktif
-  - [Uvicorn terminal çıktısı](./evidence/sprint-1/backend-uvicorn-terminal.jpeg)
+  - [Uvicorn terminal çıktısı](./evidence/backend-uvicorn-terminal.jpeg)
     — sunucu ayakta, `/docs` ve `/openapi.json` istekleri 200 OK
 
 **Bilinen eksik / düzeltilecek:**
@@ -32,9 +32,9 @@ evidence, recommendation).
 
 - Kod: `frontend/` klasörü (ana branch'e merge edildi)
 - [x] Ekran görüntüleri:
-  - [Upload + regülasyon seçimi](./evidence/sprint-1/frontend-landing-upload.jpeg)
-  - [Analiz süreci (loading)](./evidence/sprint-1/frontend-analyzing-state.jpeg)
-  - [Sonuç ekranı — mock veri, 62/100 skor](./evidence/sprint-1/frontend-results-mock.jpeg)
+  - [Upload + regülasyon seçimi](./evidence/frontend-landing-upload.jpeg)
+  - [Analiz süreci (loading)](./evidence/frontend-analyzing-state.jpeg)
+  - [Sonuç ekranı — mock veri, 62/100 skor](./evidence/frontend-results-mock.jpeg)
 
 ## Bilgi Tabanı
 
