@@ -1,0 +1,234 @@
+[
+  {
+    "article_id": "kvkk-art-4",
+    "article_number": "4",
+    "title": "Genel İlkeler",
+    "category": "Veri İşleme İlkeleri",
+    "description": "Kişisel veriler; hukuka ve dürüstlük kurallarına uygun olarak, doğru ve gerektiğinde güncel şekilde, belirli, açık ve meşru amaçlarla, işlendikleri amaçla bağlantılı, sınırlı ve ölçülü olarak işlenmeli ve yalnızca ilgili mevzuatta öngörülen veya işlendikleri amaç için gerekli olan süre kadar muhafaza edilmelidir.",
+    "keywords": [
+      "hukuka uygunluk",
+      "dürüstlük kuralları",
+      "doğruluk",
+      "güncellik",
+      "belirli amaç",
+      "meşru amaç",
+      "amaç sınırlaması",
+      "ölçülülük",
+      "veri minimizasyonu",
+      "saklama süresi",
+      "kişisel veri",
+      "genel ilkeler"
+    ],
+    "recommendation": "Kişisel veri işleme faaliyetlerinin amacını açıkça belirleyin, yalnızca gerekli verileri toplayın, verilerin güncelliğini koruyun ve saklama sürelerini tanımlayın.",
+    "source": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf"
+  },
+  {
+    "article_id": "kvkk-art-5",
+    "article_number": "5",
+    "title": "Kişisel Verilerin İşlenme Şartları",
+    "category": "Yasal Dayanak",
+    "description": "Kişisel veriler ilgili kişinin açık rızası ile veya Kanunda belirtilen hukuki sebeplerden en az birinin bulunması halinde işlenebilir.",
+    "keywords": [
+      "açık rıza",
+      "hukuki sebep",
+      "yasal dayanak",
+      "sözleşme",
+      "hukuki yükümlülük",
+      "meşru menfaat",
+      "kanuni zorunluluk",
+      "veri işleme",
+      "kişisel veri"
+    ],
+    "recommendation": "Her veri işleme faaliyeti için hangi hukuki sebebe dayanıldığını açıkça belirtin ve gerekli kayıtları saklayın.",
+    "source": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf"
+  },
+  {
+    "article_id": "kvkk-art-6",
+    "article_number": "6",
+    "title": "Özel Nitelikli Kişisel Verilerin İşlenmesi",
+    "category": "Özel Nitelikli Veriler",
+    "description": "Özel nitelikli kişisel veriler yalnızca Kanunda belirtilen şartlar altında işlenebilir ve bu veriler için ek güvenlik tedbirleri uygulanmalıdır.",
+    "keywords": [
+      "özel nitelikli veri",
+      "sağlık verisi",
+      "biyometrik veri",
+      "genetik veri",
+      "hassas veri",
+      "açık rıza",
+      "ek güvenlik",
+      "kişisel veri"
+    ],
+    "recommendation": "Özel nitelikli kişisel veriler işleniyorsa uygun teknik ve idari tedbirleri uygulayın ve hukuki dayanağı belgeleyin.",
+    "source": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf"
+  },  {
+    "article_id": "kvkk-art-7",
+    "article_number": "7",
+    "title": "Kişisel Verilerin Silinmesi, Yok Edilmesi veya Anonim Hale Getirilmesi",
+    "category": "Veri İmha",
+    "description": "Kişisel veriler, işlenmesini gerektiren sebepler ortadan kalktığında resen veya ilgili kişinin talebi üzerine silinmeli, yok edilmeli veya anonim hale getirilmelidir.",
+    "keywords": [
+      "veri silme",
+      "veri yok etme",
+      "anonim hale getirme",
+      "anonimleştirme",
+      "saklama ve imha",
+      "imha politikası",
+      "kişisel veri",
+      "saklama süresi"
+    ],
+    "recommendation": "Veri saklama ve imha politikası oluşturun, amacı sona eren kişisel verileri düzenli olarak silin, yok edin veya anonim hale getirin.",
+    "source": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf"
+  },
+  {
+    "article_id": "kvkk-art-8",
+    "article_number": "8",
+    "title": "Kişisel Verilerin Aktarılması",
+    "category": "Veri Aktarımı",
+    "description": "Kişisel veriler, Kanunda belirtilen veri işleme şartlarından en az birinin bulunması halinde üçüncü kişilere aktarılabilir.",
+    "keywords": [
+      "veri aktarımı",
+      "üçüncü kişiler",
+      "kişisel veri paylaşımı",
+      "aktarım",
+      "hukuki dayanak",
+      "veri paylaşımı",
+      "alıcı"
+    ],
+    "recommendation": "Üçüncü taraflarla veri paylaşımı yapılıyorsa hukuki dayanağı, aktarım amacını ve alıcı gruplarını açıkça belirtin.",
+    "source": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf"
+  },
+  {
+    "article_id": "kvkk-art-9",
+    "article_number": "9",
+    "title": "Kişisel Verilerin Yurt Dışına Aktarılması",
+    "category": "Uluslararası Veri Aktarımı",
+    "description": "Kişisel veriler yurt dışına ancak Kanunda belirtilen şartların sağlanması ve gerekli güvencelerin bulunması halinde aktarılabilir.",
+    "keywords": [
+      "yurt dışına aktarım",
+      "uluslararası veri aktarımı",
+      "yeterlilik kararı",
+      "standart sözleşme",
+      "uygun güvence",
+      "kişisel veri"
+    ],
+    "recommendation": "Yurt dışına veri aktarımı yapılıyorsa hukuki dayanağı, hedef ülkeyi ve kullanılan güvenceleri açık şekilde belirtin.",
+    "source": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf"
+  },  {
+    "article_id": "kvkk-art-10",
+    "article_number": "10",
+    "title": "Veri Sorumlusunun Aydınlatma Yükümlülüğü",
+    "category": "Bilgilendirme Yükümlülüğü",
+    "description": "Veri sorumlusu, kişisel verilerin elde edilmesi sırasında ilgili kişiyi veri sorumlusunun kimliği, veri işleme amacı, verilerin kimlere ve hangi amaçla aktarılabileceği, veri toplama yöntemi, hukuki sebebi ve ilgili kişinin hakları hakkında bilgilendirmekle yükümlüdür.",
+    "keywords": [
+      "aydınlatma yükümlülüğü",
+      "aydınlatma metni",
+      "veri sorumlusu",
+      "kişisel veri",
+      "işleme amacı",
+      "hukuki sebep",
+      "veri toplama yöntemi",
+      "ilgili kişi",
+      "haklar",
+      "şeffaflık",
+      "bilgilendirme",
+      "KVKK"
+    ],
+    "recommendation": "Açık, anlaşılır ve kolay erişilebilir bir aydınlatma metni hazırlayın. Veri sorumlusunun kimliği, işleme amaçları, hukuki sebep, veri aktarımı ve ilgili kişinin hakları eksiksiz belirtilmelidir.",
+    "source": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf"
+  },
+  {
+    "article_id": "kvkk-art-11",
+    "article_number": "11",
+    "title": "İlgili Kişinin Hakları",
+    "category": "İlgili Kişi Hakları",
+    "description": "İlgili kişi; kişisel verilerinin işlenip işlenmediğini öğrenme, bilgi talep etme, düzeltilmesini isteme, silinmesini veya yok edilmesini talep etme, aktarıldığı üçüncü kişileri öğrenme, işlenen verilere itiraz etme ve zararının giderilmesini talep etme haklarına sahiptir.",
+    "keywords": [
+      "ilgili kişi hakları",
+      "kişisel veri",
+      "erişim hakkı",
+      "bilgi talebi",
+      "düzeltme hakkı",
+      "silme hakkı",
+      "itiraz hakkı",
+      "veri sahibi",
+      "zararın giderilmesi",
+      "başvuru hakkı"
+    ],
+    "recommendation": "İlgili kişilerin haklarını kullanabilecekleri açık ve kolay erişilebilir bir başvuru mekanizması oluşturun ve taleplerin takibini sağlayın.",
+    "source": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf"
+  },
+  {
+    "article_id": "kvkk-art-12",
+    "article_number": "12",
+    "title": "Veri Güvenliğine İlişkin Yükümlülükler",
+    "category": "Veri Güvenliği",
+    "description": "Veri sorumlusu, kişisel verilerin hukuka aykırı işlenmesini ve erişilmesini önlemek, kişisel verilerin güvenliğini sağlamak amacıyla uygun teknik ve idari tedbirleri almakla yükümlüdür. Veri ihlali durumunda Kurulu ve ilgili kişileri gerekli şekilde bilgilendirmelidir.",
+    "keywords": [
+      "veri güvenliği",
+      "teknik tedbir",
+      "idari tedbir",
+      "erişim kontrolü",
+      "şifreleme",
+      "veri ihlali",
+      "ihlal bildirimi",
+      "yetkisiz erişim",
+      "kişisel veri güvenliği",
+      "KVKK"
+    ],
+    "recommendation": "Şifreleme, erişim kontrolü, loglama ve düzenli güvenlik testleri gibi teknik ve idari tedbirleri uygulayın. Veri ihlallerini tespit edip gerekli bildirim süreçlerini oluşturun.",
+    "source": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf"
+  },  {
+    "article_id": "kvkk-art-13",
+    "article_number": "13",
+    "title": "Veri Sorumlusuna Başvuru",
+    "category": "Başvuru Süreci",
+    "description": "İlgili kişi, Kanunun 11 inci maddesinde belirtilen haklarını kullanmak için veri sorumlusuna yazılı olarak veya Kurulun belirlediği diğer yöntemlerle başvurabilir. Veri sorumlusu başvuruyu en kısa sürede ve en geç otuz gün içinde ücretsiz olarak sonuçlandırmalıdır.",
+    "keywords": [
+      "veri sorumlusuna başvuru",
+      "başvuru",
+      "30 gün",
+      "başvuru yöntemi",
+      "başvuru süreci",
+      "ilgili kişi",
+      "KVKK"
+    ],
+    "recommendation": "İlgili kişilerin başvuru yapabileceği açık iletişim kanalları oluşturun ve tüm başvuruların en geç 30 gün içinde sonuçlandırılmasını sağlayın.",
+    "source": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf"
+  },
+  {
+    "article_id": "kvkk-art-14",
+    "article_number": "14",
+    "title": "Kurula Şikâyet",
+    "category": "Şikâyet Süreci",
+    "description": "İlgili kişi, veri sorumlusuna yaptığı başvurunun reddedilmesi, verilen cevabı yetersiz bulması veya süresi içinde cevap alamaması hâlinde Kişisel Verileri Koruma Kuruluna şikâyette bulunabilir.",
+    "keywords": [
+      "kurula şikâyet",
+      "kişisel verileri koruma kurulu",
+      "şikâyet",
+      "itiraz",
+      "başvuru",
+      "kurul",
+      "KVKK"
+    ],
+    "recommendation": "Başvuruların usulüne uygun şekilde kayıt altına alınmasını sağlayın ve gerektiğinde Kurul incelemelerinde kullanılabilecek dokümantasyonu saklayın.",
+    "source": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf"
+  },
+  {
+    "article_id": "kvkk-art-16",
+    "article_number": "16",
+    "title": "Veri Sorumluları Sicili (VERBİS)",
+    "category": "Kayıt Yükümlülüğü",
+    "description": "Kanunda öngörülen yükümlülük kapsamındaki veri sorumluları, Veri Sorumluları Siciline (VERBİS) kayıt olmak ve veri işleme faaliyetlerine ilişkin bilgileri güncel tutmakla yükümlüdür.",
+    "keywords": [
+      "VERBİS",
+      "veri sorumluları sicili",
+      "sicil",
+      "kayıt",
+      "veri işleme envanteri",
+      "veri sorumlusu",
+      "KVKK"
+    ],
+    "recommendation": "VERBİS yükümlülüğü kapsamındaysanız veri işleme envanterinizi hazırlayın, sicil kaydınızı tamamlayın ve bilgilerinizi güncel tutun.",
+    "source": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf"
+  }
+]
