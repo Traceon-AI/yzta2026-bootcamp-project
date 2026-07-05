@@ -45,7 +45,7 @@ Kutucuklar GitHub'da işaretlenerek ilerleme takibi yapılabilir (`- [x]`).
 - [x] Ürün Durumu (`docs/sprint-1-product-status.md`)
 - [ ] Ekran görüntüleri: Backend Swagger `/docs` (Eylül'den bekleniyor),
       Frontend taslak (Önder'den bekleniyor)
-- [ ] Daily Scrum kanıtları `docs/daily-scrum/` altına eklenecek
+- [x] Daily Scrum kanıtları `docs/daily-scrum/` altına eklenecek
 
 ---
 
