@@ -2,41 +2,95 @@
 
 Kutucuklar GitHub'da işaretlenerek ilerleme takibi yapılabilir (`- [x]`).
 
+> **Not (Sprint 1 kapanışı):** Ekibin yoğun eforuyla, Sprint 2'de planlanan
+> bazı görevler (backend iskeleti, GDPR/KVKK veri dosyaları) Sprint 1
+> içinde erken tamamlandı. Bunlar `[x]` olarak işaretlidir.
+> Detay: `docs/sprint-1-review.md`
+
+## Sprint 1 (19 Haziran–5 Temmuz) — Fikir, Kapsam, Altyapı ✅ TAMAMLANDI
+
+### Planlama ve Kapsam
+- [x] Proje fikri netleştirildi: ISO 27001 değerlendirildi, telif riski
+      nedeniyle GDPR + KVKK ikili kapsamına geçildi
+- [x] Kapsam daraltma kararı: tek doküman + tek regülasyon seçimi + gap
+      analizi akışı MVP olarak belirlendi
+- [x] Regülasyon-agnostik mimari kararı: tek motor, regülasyonlar sadece
+      veri dosyası olarak değişiyor
+
+### Dokümantasyon (Spec-Kit)
+- [x] Proje anayasası (`docs/constitution.md`)
+- [x] Özellik spesifikasyonu (`docs/spec.md`) — FR-001–FR-009
+- [x] Teknik plan (`docs/plan.md`)
+- [x] Görev listesi (`docs/tasks.md`)
+- [x] API sözleşmesi (`docs/api-contract.md`)
+
+### Altyapı
+- [x] GitHub organizasyonu ve repo kuruldu (Traceon-AI /
+      yzta2026-bootcamp-project)
+- [x] Sprint board (GitHub Projects) kuruldu, Sprint 1-2-3 milestone'ları
+      tanımlandı
+- [x] README hazırlandı (takım ismi, roller, ürün açıklaması, hedef kitle)
+
+### Erken Tamamlanan Geliştirme Çıktıları (Sprint 2'den öne çekildi)
+- [x] Backend iskeleti: `main.py` — `api-contract.md`'ye uygun mock API
+      (`GET /regulations`, `POST /analyze`) — Eylül Zengin
+- [x] GDPR bilgi tabanı: `data/gdpr.json`, 15 madde (hedef 12-15 aşıldı)
+      — Efnan Demircan
+- [x] KVKK bilgi tabanı: `data/kvkk.json`, 12 madde (hedef 10-12
+      karşılandı) *(hazırlayan teyit edilecek: Efnan/Ezgi)*
+
+### Sprint 1 Kapanış Kanıtları
+- [x] Sprint Review (`docs/sprint-1-review.md`)
+- [x] Sprint Retrospective (`docs/sprint-1-retrospective.md`)
+- [x] Ürün Durumu (`docs/sprint-1-product-status.md`)
+- [ ] Ekran görüntüleri: Backend Swagger `/docs` (Eylül'den bekleniyor),
+      Frontend taslak (Önder'den bekleniyor)
+- [ ] Daily Scrum kanıtları `docs/daily-scrum/` altına eklenecek
+
+---
+
 ## Sprint 2 (6–19 Temmuz) — Çalışan İskelet (GDPR ile)
 
-### Kişi 1 — Backend / RAG
-- [ ] Repo iskeleti + bağımlılıklar (FastAPI/benzeri, PDF/DOCX kütüphaneleri)
-- [ ] Doküman yükleme endpoint'i (dosya al, metne çevir)
+### Eylül Zengin — Backend / RAG
+*(Repo iskeleti + mock API Sprint 1'de erken tamamlandı — bkz. Sprint 1 bölümü)*
+- [ ] Doküman yükleme endpoint'ini gerçek işleme bağla (dosya al, metne çevir —
+      PDF: pypdf, DOCX: python-docx)
 - [ ] Chunking fonksiyonu (paragraf bazlı, basit)
 - [ ] Embedding entegrasyonu (çok dilli performansı iyi bir model seç)
+- [ ] Embedding sonrası hızlı çapraz dil testi: 1 Türkçe metin ↔ İngilizce
+      GDPR maddesi eşleşiyor mu? (5 dk'lık sağlamlık kontrolü)
 - [ ] In-memory benzerlik araması (chunk ↔ regülasyon maddesi eşleştirme) —
       **regülasyon parametre olarak alınmalı, hardcode edilmemeli**
 - [ ] LLM'e "bu chunk bu maddeyi karşılıyor mu?" prompt'u + JSON çıktı formatı
+- [ ] `/regulations` madde sayılarını statikten dinamiğe çevir (bkz. ilgili issue)
 - [ ] Uçtan uca test: 1 örnek GDPR dokümanıyla pipeline'ı çalıştır
 
-### Kişi 2 — Frontend
-- [ ] Kişi 1 ile API sözleşmesini netleştir (istek/cevap formatı, regülasyon
-      parametresi dahil — 1 sayfalık not)
+### Abdullah Önder Aksu — Frontend (+ Scrum Master)
+- [x] API sözleşmesi hazır (`docs/api-contract.md`) — okundu/onaylandı teyidi bekleniyor
 - [ ] Dosya yükleme ekranı (drag-drop veya basit input)
 - [ ] Regülasyon seçim bileşeni (GDPR / KVKK — şimdilik sadece GDPR aktif,
       KVKK "yakında" olarak görünebilir)
 - [ ] Yükleniyor/işleniyor durumu (spinner, basit)
-- [ ] Sonuç tablosu iskeleti (madde adı, durum, boş kanıt alanı) — backend
-      hazır olmadan mock veriyle çalış
+- [ ] Sonuç tablosu iskeleti (madde adı, durum, kanıt alanı) — backend
+      hazır olmadan sözleşmedeki örnek JSON'la (mock) çalış
+- [ ] (SM) Daily Scrum notlarının `docs/daily-scrum/` altına işlenmesini takip et
 
-### Kişi 3 — Bilgi Tabanları + Süreç
-- [ ] **GDPR**: EUR-Lex'ten en az 12-15 temel yükümlülüğü derle, kendi
-      cümlelerinle özetle (`data/gdpr.json`)
-- [ ] Her GDPR maddesi için: kısa açıklama + "eksikse önerilen aksiyon" metni
-- [ ] Test için 1-2 örnek İngilizce doküman bul/oluştur (örnek/anonim metin)
-- [ ] **KVKK**: Resmi Gazete'den en az 10-12 temel yükümlülüğü derle, aynı
-      JSON şemasıyla hazırla (`data/kvkk.json`) — Sprint 2'de sadece
-      hazırlık, motora bağlama Sprint 3'te
-- [ ] GitHub reposu: README (takım ismi, roller, ürün açıklaması, hedef
-      kitle) — kılavuzdaki formatta
-- [ ] Sprint board (GitHub Projects/Trello/Miro) kur ve linki README'ye ekle
-- [ ] Sprint 2 sonu: Daily Scrum notlarını ve sprint board güncellemelerini
-      GitHub'a işle (kanıt için)
+### Efnan Demircan — Bilgi Tabanı & Test
+*(GDPR bilgi tabanı Sprint 1'de erken tamamlandı — bkz. Sprint 1 bölümü)*
+- [ ] Test için 1-2 örnek İngilizce doküman hazırla (kurgusal/anonim
+      Privacy Policy) — **Eylül'ün pipeline testi için öncelikli**
+- [ ] GDPR maddelerini entegrasyon sırasında gözden geçir (Eylül'den geri
+      bildirim gelirse hızlı düzeltme)
+
+### Ezgi Yıldırım — Bilgi Tabanı & Test
+- [ ] GitHub collaborator davetini kabul et
+- [ ] Test için örnek Türkçe (KVKK) doküman hazırla (kurgusal Aydınlatma
+      Metni) — Sprint 3 KVKK entegrasyonuna hazırlık
+- [ ] Müsaitlik durumuna göre ek görev alımı (Sprint 2 ortasında netleşecek)
+
+### Ortak (Sprint 2 sonu)
+- [ ] Daily Scrum notları ve sprint board güncellemeleri GitHub'a
+      işlenecek (kanıt için)
 
 ### Sprint 2 Bitiş Kriteri (Definition of Done)
 Bir kullanıcı örnek bir GDPR dokümanı yükleyip en az birkaç madde için
@@ -47,7 +101,7 @@ hazır ama henüz arayüzde aktif değil olabilir.
 
 ## Sprint 3 (20 Temmuz–2 Ağustos) — KVKK Entegrasyonu + Doğruluk + Cila
 
-### Kişi 1 — Backend / RAG
+### Eylül Zengin — Backend / RAG
 - [ ] `data/kvkk.json`'ı motora bağla (yeni kod yazmadan, sadece veri
       seçimini aktif et) — bu adım motorun gerçekten regülasyon-agnostik
       olduğunu kanıtlar
@@ -57,7 +111,7 @@ hazır ama henüz arayüzde aktif değil olabilir.
 - [ ] Genel uyum skoru (%) hesaplama mantığı
 - [ ] Performans/hız kontrolü (kabul edilebilir bekleme süresi)
 
-### Kişi 2 — Frontend
+### Abdullah Önder Aksu — Frontend
 - [ ] Backend ile tam entegrasyon (mock veri kaldır)
 - [ ] Regülasyon seçimini tam aktif et (GDPR + KVKK ikisi de çalışır durumda)
 - [ ] Sonuç ekranını sadeleştir: seçilen regülasyon adı + skor + madde
@@ -65,14 +119,19 @@ hazır ama henüz arayüzde aktif değil olabilir.
 - [ ] Hata durumlarını kullanıcıya göster (yükleme başarısız vb.)
 - [ ] "AI değerlendirmesi" sorumluluk reddi metnini görünür yere ekle
 
-### Kişi 3 — İçerik + Teslim Hazırlığı
+### Efnan Demircan & Ezgi Yıldırım — İçerik + Test
 - [ ] Her iki bilgi tabanını da gözden geçir, eksik/yanlış maddeleri düzelt
-- [ ] Test için 1-2 örnek Türkçe (KVKK) doküman hazırla
-- [ ] Ürün fikri dokümanını tamamla (Takım İsmi, Roller, Ürün Adı,
-      Açıklama, Özellikler, Hedef Kitle, "çoklu regülasyon" vizyonu — README)
+- [ ] KVKK test dokümanlarını finalize et
+- [ ] Uçtan uca kullanıcı testi: her iki regülasyonla gerçek akışı dene,
+      bulguları raporla
+
+### Ahmet Faruk Bilgin — PO + Teslim Hazırlığı
+- [ ] Ürün fikri dokümanını tamamla (README son kontrol — "çoklu
+      regülasyon" vizyonu dahil)
 - [ ] Demo senaryosu ve 3 dakikalık video için akış/senaryo metni yaz
       (hem GDPR hem KVKK örneğini gösterecek şekilde)
 - [ ] Teslim formunun sorularını önceden gözden geçir, eksik bırakma
+- [ ] Sonuçların `spec.md` Başarı Kriterleri'ne uygunluğunu doğrula
 
 ### Ekip — Ortak (son hafta)
 - [ ] GitHub reposunu public yap, tüm commit geçmişi düzenli olsun
