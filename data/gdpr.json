@@ -1,0 +1,269 @@
+[
+  {
+    "article_id": "gdpr-art-5",
+    "article_number": "5",
+    "title": "Principles relating to processing of personal data",
+    "category": "Data Processing Principles",
+    "description": "Personal data must be processed lawfully, fairly and transparently, collected for specific purposes, limited to what is necessary, kept accurate, stored only as long as needed and protected with appropriate security measures.",
+    "keywords": [
+      "lawfulness",
+      "fairness",
+      "transparency",
+      "purpose limitation",
+      "data minimisation",
+      "accuracy",
+      "storage limitation",
+      "integrity",
+      "confidentiality",
+      "accountability",
+      "privacy policy",
+      "personal data",
+      "processing principles"
+    ],
+    "recommendation": "Clearly explain how personal data is collected, processed, stored, protected and retained. Ensure that processing purposes are defined and data processing follows GDPR principles.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-6",
+    "article_number": "6",
+    "title": "Lawfulness of processing",
+    "category": "Legal Basis",
+    "description": "Personal data may only be processed when there is a valid legal basis defined by the GDPR.",
+    "keywords": [
+      "consent",
+      "contract",
+      "legal obligation",
+      "vital interests",
+      "public task",
+      "legitimate interests",
+      "legal basis",
+      "lawful processing",
+      "processing purpose"
+    ],
+    "recommendation": "Clearly state the legal basis for processing personal data (such as consent, contract or legal obligation) for each processing activity.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-7",
+    "article_number": "7",
+    "title": "Conditions for consent",
+    "category": "Consent",
+    "description": "When personal data is processed based on consent, the consent must be freely given, specific, informed, unambiguous and can be withdrawn at any time.",
+    "keywords": [
+      "consent",
+      "freely given",
+      "specific",
+      "informed",
+      "unambiguous",
+      "withdraw consent",
+      "explicit consent",
+      "user consent"
+    ],
+    "recommendation": "Clearly explain how users give consent and provide an easy way for them to withdraw their consent at any time.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-12",
+    "article_number": "12",
+    "title": "Transparent information, communication and modalities for the exercise of the rights of the data subject",
+    "category": "Transparency and Communication",
+    "description": "Organizations must provide clear, transparent and easily understandable information about personal data processing and enable individuals to exercise their GDPR rights without unnecessary obstacles.",
+    "keywords": [
+      "transparency",
+      "clear language",
+      "communication",
+      "data subject rights",
+      "accessibility",
+      "one month response",
+      "free of charge",
+      "privacy notice",
+      "user request"
+    ],
+    "recommendation": "Use clear and simple language in your privacy policy, explain users' rights, and provide an easy process for submitting and responding to GDPR requests within the required time limits.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-13",
+    "article_number": "13",
+    "title": "Information to be provided where personal data are collected from the data subject",
+    "category": "Information Obligation",
+    "description": "Organizations must inform individuals about how and why their personal data is collected, processed, stored and shared at the time the data is collected.",
+    "keywords": [
+      "privacy notice",
+      "purpose of processing",
+      "legal basis",
+      "controller",
+      "data retention",
+      "data subject rights",
+      "data protection officer"
+    ],
+    "recommendation": "Provide a clear privacy notice explaining who collects the data, why it is collected, the legal basis, retention period and users' rights.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-14",
+    "article_number": "14",
+    "title": "Information to be provided where personal data have not been obtained from the data subject",
+    "category": "Information Obligation",
+    "description": "When personal data is obtained from another source, organizations must inform individuals about the source of the data and how it will be processed.",
+    "keywords": [
+      "third-party data",
+      "source of data",
+      "privacy notice",
+      "legal basis",
+      "processing purpose",
+      "transparency"
+    ],
+    "recommendation": "Inform individuals when their personal data comes from third parties and explain its source, purpose and legal basis.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-15",
+    "article_number": "15",
+    "title": "Right of access by the data subject",
+    "category": "Data Subject Rights",
+    "description": "Individuals have the right to know whether their personal data is being processed and to obtain access to that data and related information.",
+    "keywords": [
+      "right of access",
+      "copy of data",
+      "personal data",
+      "processing",
+      "data subject"
+    ],
+    "recommendation": "Provide a simple process for users to request access to their personal data and receive a copy of the information being processed.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-16",
+    "article_number": "16",
+    "title": "Right to rectification",
+    "category": "Data Subject Rights",
+    "description": "Individuals have the right to request correction of inaccurate or incomplete personal data without unnecessary delay.",
+    "keywords": [
+      "rectification",
+      "correction",
+      "update personal data",
+      "accuracy"
+    ],
+    "recommendation": "Allow users to easily update or correct inaccurate or incomplete personal information.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-17",
+    "article_number": "17",
+    "title": "Right to erasure (Right to be forgotten)",
+    "category": "Data Subject Rights",
+    "description": "Individuals have the right to request the deletion of their personal data when legal conditions are met, unless an exception defined by the GDPR applies.",
+    "keywords": [
+      "right to erasure",
+      "right to be forgotten",
+      "delete personal data",
+      "withdraw consent",
+      "data deletion"
+    ],
+    "recommendation": "Provide a clear mechanism for users to request deletion of their personal data and explain any legal exceptions that may apply.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-20",
+    "article_number": "20",
+    "title": "Right to data portability",
+    "category": "Data Subject Rights",
+    "description": "Individuals have the right to receive their personal data in a structured, commonly used and machine-readable format and transfer it to another controller.",
+    "keywords": [
+      "data portability",
+      "machine-readable",
+      "transfer data",
+      "structured format",
+      "consent",
+      "contract"
+    ],
+    "recommendation": "Provide users with an option to export their personal data in a structured, commonly used format and support transfer requests where technically feasible.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-25",
+    "article_number": "25",
+    "title": "Data protection by design and by default",
+    "category": "Privacy by Design",
+    "description": "Organizations must integrate data protection into system design and ensure that only the minimum necessary personal data is processed by default.",
+    "keywords": [
+      "privacy by design",
+      "privacy by default",
+      "data minimisation",
+      "technical measures",
+      "organisational measures",
+      "pseudonymisation"
+    ],
+    "recommendation": "Implement privacy-by-design principles and configure systems to collect and process only the personal data necessary for each purpose.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-30",
+    "article_number": "30",
+    "title": "Records of processing activities",
+    "category": "Accountability",
+    "description": "Organizations must maintain accurate records of their personal data processing activities and make them available to supervisory authorities when required.",
+    "keywords": [
+      "processing records",
+      "documentation",
+      "accountability",
+      "controller",
+      "processor",
+      "record of processing"
+    ],
+    "recommendation": "Maintain an up-to-date record of processing activities, including processing purposes, data categories, recipients and security measures.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-32",
+    "article_number": "32",
+    "title": "Security of processing",
+    "category": "Security",
+    "description": "Organizations must implement appropriate technical and organizational measures to ensure the confidentiality, integrity, availability and resilience of personal data.",
+    "keywords": [
+      "security",
+      "encryption",
+      "confidentiality",
+      "integrity",
+      "availability",
+      "resilience",
+      "risk assessment",
+      "technical measures"
+    ],
+    "recommendation": "Protect personal data using appropriate security controls such as encryption, access control, regular testing and risk-based security measures.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-33",
+    "article_number": "33",
+    "title": "Notification of a personal data breach to the supervisory authority",
+    "category": "Data Breach Management",
+    "description": "Organizations must notify the competent supervisory authority of a personal data breach without undue delay and, where feasible, within 72 hours.",
+    "keywords": [
+      "data breach",
+      "72 hours",
+      "supervisory authority",
+      "incident response",
+      "breach notification"
+    ],
+    "recommendation": "Establish an incident response process to detect, document and report personal data breaches to the supervisory authority within the required timeframe.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "article_id": "gdpr-art-34",
+    "article_number": "34",
+    "title": "Communication of a personal data breach to the data subject",
+    "category": "Data Breach Management",
+    "description": "Organizations must inform affected individuals without undue delay when a personal data breach is likely to result in a high risk to their rights and freedoms.",
+    "keywords": [
+      "data breach",
+      "data subject notification",
+      "high risk",
+      "communication",
+      "encryption"
+    ],
+    "recommendation": "Notify affected individuals promptly after a high-risk personal data breach and explain the nature of the breach, its potential impact and the measures taken.",
+    "source": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  }
+]
