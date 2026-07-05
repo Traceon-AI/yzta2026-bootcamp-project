@@ -1,14 +1,13 @@
 # Traceon-AI
 
 ## Takım İsmi
-[Takımınızın adı]
-
-## Takım Üyeleri
-- Abdullah Önder Aksu — Product Owner 
-- Ahmet Faruk Bilgin — Scrum Master 
-- Eylül Zengin — Developer
-- Efnan Demircan — Developer
-- Ezgi Yıldırım — Developer 
+Governers
+## Takım Rolleri
+- Ahmet Faruk Bilgin — Product Owner
+- Abdullah Önder Aksu — Scrum Master, Frontend
+- Eylül Zengin — Developer (Backend)
+- Efnan Demircan — Developer (Bilgi Tabanı & Test)
+- Ezgi Yıldırım — Developer (Bilgi Tabanı & Test)
 
 ## Ürün İsmi
 Traceon-AI
