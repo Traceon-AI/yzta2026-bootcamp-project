@@ -6,27 +6,31 @@ gösterir. Kod dosyaları + ekran görüntüleri buraya toplanır.
 ## Backend
 
 **Durum:** `api-contract.md` sözleşmesine uygun, mock veriyle çalışan
-iskelet hazır. Gerçek RAG pipeline (chunking, embedding, LLM
-karşılaştırma) henüz başlamadı — bu Sprint 2 kapsamında.
+iskelet hazır ve çalışır halde doğrulandı. Gerçek RAG pipeline
+(chunking, embedding, LLM karşılaştırma) Sprint 2 kapsamında.
 
-- Kod: `main.py` ([repo linki eklenecek])
+- Kod: `backend/main.py` (ana branch'te)
 - Endpoint'ler: `GET /regulations`, `POST /analyze` (mock cevap)
 - [x] Çalışır halinin ekran görüntüleri:
   - [Swagger /docs arayüzü](./evidence/sprint-1/backend-swagger-docs.jpeg)
     — `GET /regulations` ve `POST /analyze` endpoint'leri aktif
   - [Uvicorn terminal çıktısı](./evidence/sprint-1/backend-uvicorn-terminal.jpeg)
     — sunucu ayakta, `/docs` ve `/openapi.json` istekleri 200 OK
-    
+
 **Bilinen eksik / düzeltilecek:**
 - `/regulations` cevabındaki `article_count` değerleri (`gdpr: 14`,
-  `kvkk: 11`) güncel değil, gerçek sayılar 15 ve 12. Sabit yazmak yerine
-  veri dosyasının uzunluğundan dinamik hesaplanması önerilir.
+  `kvkk: 11`) güncel değil, gerçek sayılar 15 ve 12. Veri dosyasının
+  uzunluğundan dinamik hesaplanacak — Sprint 2 issue'su açıldı.
 
 ## Frontend
 
-**Durum:** [Önder'den bilgi/kanıt bekleniyor]
+**Durum:** Beklenenin ötesinde — landing page, regülasyon seçimi
+(GDPR/KVKK), drag-drop dosya yükleme, analiz süreci göstergesi ve mock
+veriyle uçtan uca çalışan sonuç ekranı tamamlandı. Mock veri,
+`api-contract.md` şemasıyla birebir uyumlu (article_id, status,
+evidence, recommendation).
 
-- [ ] Kod/branch linki
+- Kod: `frontend/` klasörü (ana branch'e merge edildi)
 - [x] Ekran görüntüleri:
   - [Upload + regülasyon seçimi](./evidence/sprint-1/frontend-landing-upload.jpeg)
   - [Analiz süreci (loading)](./evidence/sprint-1/frontend-analyzing-state.jpeg)
@@ -35,7 +39,7 @@ karşılaştırma) henüz başlamadı — bu Sprint 2 kapsamında.
 ## Bilgi Tabanı
 
 **Durum:** GDPR ve KVKK veri dosyaları oluşturuldu, hedeflenen madde
-sayıları karşılandı.
+sayıları karşılandı. Test dokümanı da hazır.
 
 | Dosya | Madde Sayısı | Hedef (`spec.md`) | Durum |
 |---|---|---|---|
@@ -47,13 +51,13 @@ sayıları karşılandı.
   category, description, keywords, recommendation, source` alanlarını
   taşıyor — motorun regülasyon-agnostik çalışması için gerekli tutarlılık
   sağlanmış.
-- [ ] Test dokümanı (örnek GDPR/KVKK metni) linki eklenecek —
-      **Efnan/Ezgi'den istenecek**
+- [x] Test dokümanı hazır: [`docs/privacy-policy-test.md`](./privacy-policy-test.md)
+  — Sprint 2'deki pipeline testlerinde kullanılacak.
 
 ## Genel Değerlendirme
 
 Sprint 1'de planlanandan fazlası çıktı: dokümantasyon ve altyapının
-yanında, Backend ve Bilgi Tabanı tarafında gerçek, sözleşmeye uygun ilk
-çıktılar üretildi. Frontend tarafının durumu netleşince bu sayfa
-güncellenecek. Bu üç parçanın **birlikte gerçekten çalışıp çalışmadığı**
-(entegrasyon testi) Sprint 2'nin ilk işi olacak.
+yanında, Backend, Frontend ve Bilgi Tabanı — üç cephede de sözleşmeye
+uygun, doğrulanmış ilk çıktılar üretildi. Bu üç parçanın **birlikte
+gerçekten çalışıp çalışmadığı** (entegrasyon testi) Sprint 2'nin ilk
+işi olacak; ara entegrasyon kontrolü 12-13 Temmuz civarına planlandı.
