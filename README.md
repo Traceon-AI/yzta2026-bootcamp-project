@@ -35,7 +35,7 @@ https://github.com/orgs/Traceon-AI/projects/1
 # Sprint 1
 - **Backlog düzeni ve Story seçimleri**: Görev dağıtım mantığı için [tasks.md](./docs/tasks.md) — görevler rol ve müsaitlik durumuna göre dağıtıldı, detaylar sprint board'da.
 - **Daily Scrum**: [Sprint 1 Daily Scrum Kayıtları](docs/sprint-1-daily-scrum.md)
-- **Sprint board update**: Sprint board screenshotları: [buraya ekran görüntüsü veya board linki]
+- **Sprint board update**: https://github.com/orgs/Traceon-AI/projects/1
 - **Ürün Durumu**: [Ürün Durumu Raporu](./docs/sprint-1-product-status.md)
 - **Sprint Review**: [Sprint 1 Review](./docs/sprint-1-review.md)
 - **Sprint Retrospective:** [Sprint 1 Retrospective](./docs/sprint-1-retrospective.md)
