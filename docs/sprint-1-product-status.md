@@ -28,9 +28,9 @@ karşılaştırma) henüz başlamadı — bu Sprint 2 kapsamında.
 
 - [ ] Kod/branch linki
 - [x] Ekran görüntüleri:
-  - [Upload + regülasyon seçimi](./evidence/sprint-1/frontend-landing-upload.png)
-  - [Analiz süreci (loading)](./evidence/sprint-1/frontend-analyzing-state.png)
-  - [Sonuç ekranı — mock veri, 62/100 skor](./evidence/sprint-1/frontend-results-mock.png)
+  - [Upload + regülasyon seçimi](./evidence/sprint-1/frontend-landing-upload.jpeg)
+  - [Analiz süreci (loading)](./evidence/sprint-1/frontend-analyzing-state.jpeg)
+  - [Sonuç ekranı — mock veri, 62/100 skor](./evidence/sprint-1/frontend-results-mock.jpeg)
 
 ## Bilgi Tabanı
 
