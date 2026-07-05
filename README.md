@@ -1,7 +1,8 @@
 # Traceon-AI
-
+## Takım Numarası
+21
 ## Takım İsmi
-Governers
+Namüsaitler
 ## Takım Rolleri
 - Ahmet Faruk Bilgin — Product Owner
 - Abdullah Önder Aksu — Scrum Master, Frontend
