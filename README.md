@@ -47,6 +47,23 @@ https://github.com/orgs/Traceon-AI/projects/1
 
 # Sprint 2
 
+- **Backlog düzeni ve Story seçimleri**: Görev dağılımı ve güncellenen Sprint 2 planı için [tasks.md](./docs/tasks.md) — sprint sonunda yeniden planlama yapılarak görevler güncel müsaitliklere göre dağıtıldı.
+- **Daily Scrum**: [Sprint 2 Daily Scrum Kayıtları](./docs/sprint-2/daily-scrum.md)
+- **Sprint board update**: https://github.com/orgs/Traceon-AI/projects/1
+- **Ürün Durumu**: [Sprint 2 Ürün Durumu](./docs/sprint-2/product-status.md)
+
+  **Sprint 2 Çıktıları**
+  - Gerçek PDF/DOCX doküman işleme altyapısı
+  - Paragraf bazlı chunking ve `evidence_location` üretimi
+  - Dinamik GDPR/KVKK veri kaynağı
+  - API sözleşmesiyle uyumlu gerçek JSON çıktıları
+  - Swagger üzerinden uçtan uca backend testi
+  - Modüler FastAPI mimarisi (`core/` ve `services/`)
+
+  ![Backend Swagger Test](./docs/sprint-2/evidence/swagger-test.png)
+
+- **Sprint Review**: [Sprint 2 Review](./docs/sprint-2/review.md)
+- **Sprint Retrospective:** [Sprint 2 Retrospective](./docs/sprint-2/retrospective.md)
 
 ---
 
