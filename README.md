@@ -60,7 +60,7 @@ https://github.com/orgs/Traceon-AI/projects/1
   - Swagger üzerinden uçtan uca backend testi
   - Modüler FastAPI mimarisi (`core/` ve `services/`)
 
-  ![Backend Swagger Test](./docs/sprint-2/evidence/swagger-test.png)
+  ![Backend Swagger Test](./docs/sprint-2/evidence/swagger.png)
 
 - **Sprint Review**: [Sprint 2 Review](./docs/sprint-2/review.md)
 - **Sprint Retrospective:** [Sprint 2 Retrospective](./docs/sprint-2/retrospective.md)
