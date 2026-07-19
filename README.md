@@ -61,6 +61,8 @@ https://github.com/orgs/Traceon-AI/projects/1
   - Modüler FastAPI mimarisi (`core/` ve `services/`)
 
   ![Backend Swagger Test](./docs/sprint-2/evidence/swagger.png)
+  ![Backend Swagger Test Post](./docs/sprint-2/evidence/post_Analyze_working.png)
+  ![Backend Swagger Test Get](./docs/sprint-2/evidence/get_regulations_working.png)
 
 - **Sprint Review**: [Sprint 2 Review](./docs/sprint-2/review.md)
 - **Sprint Retrospective:** [Sprint 2 Retrospective](./docs/sprint-2/retrospective.md)
