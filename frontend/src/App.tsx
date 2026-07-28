@@ -4,50 +4,22 @@ import "./index.css";
 type Regulation = "GDPR" | "KVKK";
 type ViewState = "upload" | "loading" | "result";
 
-const mockResult = {
-  regulation: "gdpr",
-  document_name: "privacy-policy.pdf",
-  overall_score: 62,
-  results: [
-    {
-      article_id: "gdpr-art-13",
-      title: "Bilgilendirme Yükümlülüğü",
-      status: "partial",
-      evidence: "We collect your name, email, and usage data...",
-      evidence_location: "sayfa 1, paragraf 2",
-      recommendation: "Hukuki dayanak ve saklama süresi eklenmeli.",
-    },
-    {
-      article_id: "gdpr-art-6",
-      title: "Hukuki Dayanak",
-      status: "missing",
-      evidence: null,
-      evidence_location: null,
-      recommendation:
-        "Verinin hangi hukuki gerekçeyle işlendiği belirtilmeli.",
-    },
-    {
-      article_id: "gdpr-art-32",
-      title: "İşleme Güvenliği",
-      status: "met",
-      evidence:
-        "The document references encryption, access control and internal security procedures.",
-      evidence_location: "sayfa 2, paragraf 1",
-      recommendation: "Mevcut güvenlik önlemleri korunmalı ve düzenli test edilmeli.",
-    },
-  ],
-};
-
 
 export default function App() {
   const [fileName, setFileName] = useState("");
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
   const [regulation, setRegulation] = useState<Regulation>("GDPR");
   const [view, setView] = useState<ViewState>("upload");
   const [error, setError] = useState("");
 
+  const [analysisResult, setAnalysisResult] = useState<any>(null);
+
   function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     setError("");
+
+    setAnalysisResult(null);
 
     if (!file) return;
 
@@ -69,26 +41,64 @@ export default function App() {
     }
 
     setFileName(file.name);
+    setSelectedFile(file);
   }
 
-  function handleAnalyze() {
-    if (!fileName) {
-      setError("Please upload a document before starting the analysis.");
+  async function handleAnalyze() {
+  if (!selectedFile) {
+    setError("Please upload a document before starting the analysis.");
+    return;
+  }
+
+  setError("");
+  setView("loading");
+
+  try {
+    const formData = new FormData();
+
+    formData.append("file", selectedFile);
+    formData.append("regulation", regulation.toLowerCase());
+
+    console.log("API URL:", import.meta.env.VITE_API_URL);
+    console.log("Selected file:", selectedFile);
+    console.log("Regulation:", regulation.toLowerCase());
+
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/analyze`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      setError(data.detail?.message || data.message || "Analysis failed.");
+      setView("upload");
       return;
     }
 
-    setError("");
-    setView("loading");
+    setAnalysisResult(data);
+    setView("result");
+  } catch (error) {
+    console.error("Fetch error:", error);
 
-    setTimeout(() => {
-      setView("result");
-    }, 2200);
+    if (error instanceof Error) {
+    console.error(error.message);
+  }
+    setError("Unable to connect to backend.");
+    setView("upload");
+  }
+
   }
 
   function resetFlow() {
-    setFileName("");
-    setError("");
-    setView("upload");
+  setFileName("");
+  setSelectedFile(null);
+  setAnalysisResult(null);
+  setError("");
+  setView("upload");
   }
 
   return (
@@ -288,82 +298,93 @@ export default function App() {
             )}
 
             {view === "result" && (
-              <div>
-                <div className="mb-4 flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-black uppercase tracking-wide text-emerald-600">
-                      Compliance Report
-                    </p>
-                    <h2 className="mt-1 text-2xl font-black">Analysis result</h2>
-                    <p className="mt-1 text-xs text-slate-500">
-                      Mock result generated for {fileName}
-                    </p>
-                  </div>
+  <div>
+    <div className="mb-4 flex items-start justify-between gap-4">
+      <div>
+        <p className="text-xs font-black uppercase tracking-wide text-emerald-600">
+          Compliance Report
+        </p>
 
-                  <div className="rounded-2xl bg-emerald-50 px-4 py-3 text-center">
-                    <p className="text-2xl font-black text-emerald-700">
-                      {mockResult.overall_score}
-                    </p>
-                    <p className="text-xs font-black text-emerald-700">Score</p>
-                  </div>
-                </div>
+        <h2 className="mt-1 text-2xl font-black">
+          Analysis result
+        </h2>
 
-                <div className="mb-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-black text-amber-700">
-                  Overall score: {mockResult.overall_score}/100
-                </div>
+        <p className="mt-1 text-xs text-slate-500">
+          Analysis completed for {analysisResult?.document_name}
+        </p>
+      </div>
 
-                <div className="space-y-3">
-                  {mockResult.results.map((finding) => (
-                    <div
-                      key={finding.article_id}
-                      className="rounded-2xl border border-slate-200 bg-slate-50 p-3"
-                    >
-                      <div className="mb-1 flex items-center justify-between gap-3">
-                        <p className="text-xs font-black text-slate-900">
-                          {finding.article_id}
-                        </p>
+      <div className="rounded-2xl bg-emerald-50 px-4 py-3 text-center">
+        <p className="text-2xl font-black text-emerald-700">
+          {analysisResult?.overall_score}
+        </p>
 
-                        <span
-                          className={`rounded-full px-3 py-1 text-xs font-black ${finding.status === "met"
-                              ? "bg-emerald-100 text-emerald-700"
-                              : finding.status === "partial"
-                                ? "bg-amber-100 text-amber-700"
-                                : "bg-red-100 text-red-700"
-                            }`}
-                        >
-                          {finding.status}
-                        </span>
-                      </div>
+        <p className="text-xs font-black text-emerald-700">
+          Score
+        </p>
+      </div>
+    </div>
 
-                      <h3 className="text-base font-black">{finding.title}</h3>
+    <div className="mb-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-black text-amber-700">
+      Overall score: {analysisResult?.overall_score}/100
+    </div>
 
-                      {finding.evidence && (
-                        <p className="mt-1 text-sm leading-5 text-slate-600">
-                          {finding.evidence}
-                        </p>
-                      )}
+    <div className="space-y-3">
+      {analysisResult?.results?.map((finding: any) => (
+        <div
+          key={finding.article_id}
+          className="rounded-2xl border border-slate-200 bg-slate-50 p-3"
+        >
+          <div className="mb-1 flex items-center justify-between gap-3">
+            <p className="text-xs font-black text-slate-900">
+              {finding.article_id}
+            </p>
 
-                      {finding.evidence_location && (
-                        <p className="mt-1 text-xs font-bold text-slate-500">
-                          Evidence location: {finding.evidence_location}
-                        </p>
-                      )}
+            <span
+              className={`rounded-full px-3 py-1 text-xs font-black ${
+                finding.status === "met"
+                  ? "bg-emerald-100 text-emerald-700"
+                  : finding.status === "partial"
+                  ? "bg-amber-100 text-amber-700"
+                  : "bg-red-100 text-red-700"
+              }`}
+            >
+              {finding.status}
+            </span>
+          </div>
 
-                      <p className="mt-2 text-sm font-bold text-emerald-700">
-                        Recommendation: {finding.recommendation}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+          <h3 className="text-base font-black">
+            {finding.title}
+          </h3>
 
-                <button
-                  onClick={resetFlow}
-                  className="mt-4 w-full rounded-2xl border border-slate-300 bg-white px-5 py-2.5 font-black text-slate-800 hover:border-emerald-400"
-                >
-                  Analyze another document
-                </button>
-              </div>
-            )}          </section>
+          {finding.evidence && (
+            <p className="mt-1 text-sm leading-5 text-slate-600">
+              {finding.evidence}
+            </p>
+          )}
+
+          {finding.evidence_location && (
+            <p className="mt-1 text-xs font-bold text-slate-500">
+              Evidence location: {finding.evidence_location}
+            </p>
+          )}
+
+          <p className="mt-2 text-sm font-bold text-emerald-700">
+            Recommendation: {finding.recommendation}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <button
+      onClick={resetFlow}
+      className="mt-4 w-full rounded-2xl border border-slate-300 bg-white px-5 py-2.5 font-black text-slate-800 hover:border-emerald-400"
+    >
+      Analyze another document
+    </button>
+  </div>
+)}
+          </section>
         </div>
       </section>
     </main>
