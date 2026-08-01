@@ -63,13 +63,12 @@ export default function App() {
     console.log("Selected file:", selectedFile);
     console.log("Regulation:", regulation.toLowerCase());
 
-    const response = await fetch(
-      `${import.meta.env.VITE_API_URL}/analyze`,
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+    const response = await fetch(`${apiUrl}/analyze`, {
+      method: "POST",
+      body: formData,
+    });
 
     const data = await response.json();
 
