@@ -117,16 +117,16 @@ Beklenen:
 - Madde listesinde `status`, `evidence`, `evidence_location`, `recommendation`
 
 ## Test Dosyaları
-- `docs/test-files/gdpr-kvkk-demo-test.docx`
-- `backend/smoke_verify.docx`
+- Örnek test dokümanlarını `docs/test-files/` klasöründe tutabilirsiniz.
+- Bu klasöre zamanla yeni GDPR/KVKK test dosyaları eklenebilir.
 
 ## API Sözleşmesi
 - Detay: [docs/api-contract.md](./docs/api-contract.md)
 
 ## Sprint Dokümantasyonu
 - Genel görev listesi: [docs/tasks.md](./docs/tasks.md)
-- Sprint 1: [docs/sprint-1](./docs/sprint-1)
-- Sprint 2: [docs/sprint-2](./docs/sprint-2)
+- Sprint dokümanları: `docs/sprint-*` klasörleri altında tutulur (ör. `docs/sprint-1`, `docs/sprint-2`, `docs/sprint-3`).
+- Sprint kanıtları ve ek çıktılar ilgili sprint klasörü veya `docs/` altındaki uygun dizinlerde konumlandırılabilir.
 
 ## Sık Karşılaşılan Sorunlar
 
