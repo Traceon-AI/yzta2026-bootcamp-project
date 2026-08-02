@@ -54,17 +54,17 @@ Kutucuklar GitHub'da işaretlenerek ilerleme takibi yapılabilir (`- [x]`).
 
 ### Eylül Zengin — Backend / RAG
 *(Repo iskeleti + mock API Sprint 1'de erken tamamlandı — bkz. Sprint 1 bölümü)*
-- [ ] Doküman yükleme endpoint'ini gerçek işleme bağla (dosya al, metne çevir —
+- [x] Doküman yükleme endpoint'ini gerçek işleme bağla (dosya al, metne çevir —
       PDF: pypdf, DOCX: python-docx)
-- [ ] Chunking fonksiyonu (paragraf bazlı, basit)
-- [ ] Embedding entegrasyonu (çok dilli performansı iyi bir model seç)
-- [ ] Embedding sonrası hızlı çapraz dil testi: 1 Türkçe metin ↔ İngilizce
+- [x] Chunking fonksiyonu (paragraf bazlı, basit)
+- [x] Embedding entegrasyonu (çok dilli performansı iyi bir model seç)
+- [x] Embedding sonrası hızlı çapraz dil testi: 1 Türkçe metin ↔ İngilizce
       GDPR maddesi eşleşiyor mu? (5 dk'lık sağlamlık kontrolü)
 - [ ] In-memory benzerlik araması (chunk ↔ regülasyon maddesi eşleştirme) —
       **regülasyon parametre olarak alınmalı, hardcode edilmemeli**
 - [ ] LLM'e "bu chunk bu maddeyi karşılıyor mu?" prompt'u + JSON çıktı formatı
-- [ ] `/regulations` madde sayılarını statikten dinamiğe çevir (bkz. ilgili issue)
-- [ ] Uçtan uca test: 1 örnek GDPR dokümanıyla pipeline'ı çalıştır
+- [x] `/regulations` madde sayılarını statikten dinamiğe çevir (bkz. ilgili issue)
+- [x] Uçtan uca test: 1 örnek GDPR dokümanıyla pipeline'ı çalıştır
 
 ### Abdullah Önder Aksu — Frontend (+ Scrum Master)
 - [x] API sözleşmesi hazır (`docs/api-contract.md`) — mock veri şemaya uygun geliştirildi
@@ -103,14 +103,14 @@ hazır ama henüz arayüzde aktif değil olabilir.
 ## Sprint 3 (20 Temmuz–2 Ağustos) — KVKK Entegrasyonu + Doğruluk + Cila
 
 ### Eylül Zengin — Backend / RAG
-- [ ] `data/kvkk.json`'ı motora bağla (yeni kod yazmadan, sadece veri
+- [x] `data/kvkk.json`'ı motora bağla (yeni kod yazmadan, sadece veri
       seçimini aktif et) — bu adım motorun gerçekten regülasyon-agnostik
       olduğunu kanıtlar
-- [ ] Prompt'u iyileştir, tutarsız sonuçları azalt (GDPR + KVKK
+- [x] Prompt'u iyileştir, tutarsız sonuçları azalt (GDPR + KVKK
       dokümanlarında test et)
 - [ ] Hata yönetimi (bozuk dosya, boş içerik, timeout)
-- [ ] Genel uyum skoru (%) hesaplama mantığı
-- [ ] Performans/hız kontrolü (kabul edilebilir bekleme süresi)
+- [x] Genel uyum skoru (%) hesaplama mantığı
+- [x] Performans/hız kontrolü (kabul edilebilir bekleme süresi)
 
 ### Abdullah Önder Aksu — Frontend
 - [ ] Backend ile tam entegrasyon (mock veri kaldır)
