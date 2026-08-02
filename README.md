@@ -72,7 +72,7 @@ https://github.com/orgs/Traceon-AI/projects/1
 # Sprint 3
 
 - **Backlog düzeni ve Story seçimleri**: 
-- **Daily Scrum**: 
+- **Daily Scrum**: [Sprint 3 Daily Scrum Kayıtları](./docs/sprint-3/daily-scrum.md)
 - **Sprint board update**: https://github.com/orgs/Traceon-AI/projects/1
 - **Ürün Durumu**: 
 
