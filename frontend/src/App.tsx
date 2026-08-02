@@ -15,6 +15,103 @@ export default function App() {
 
   const [analysisResult, setAnalysisResult] = useState<any>(null);
 
+  function handleShowSampleReport() {
+    const sampleResultsByRegulation: Record<Regulation, any[]> = {
+      GDPR: [
+        {
+          article_id: "gdpr-art-5",
+          title: "Principles relating to processing of personal data",
+          status: "met",
+          evidence:
+            "We process personal data lawfully, fairly, and transparently for specific purposes such as account management and service delivery.",
+          evidence_location: "paragraf 2",
+          recommendation: null,
+        },
+        {
+          article_id: "gdpr-art-6",
+          title: "Lawfulness of processing",
+          status: "partial",
+          evidence:
+            "The legal basis of processing may include consent, contract performance, legal obligation, and legitimate interest where applicable.",
+          evidence_location: "paragraf 3",
+          recommendation:
+            "Hukuki dayanaklar dokümanda faaliyet bazında daha açık ve izlenebilir şekilde belirtilmelidir.",
+        },
+        {
+          article_id: "gdpr-art-32",
+          title: "Security of processing",
+          status: "met",
+          evidence:
+            "We apply technical and organizational safeguards including encryption, access control, logging, and regular security testing.",
+          evidence_location: "paragraf 6",
+          recommendation: null,
+        },
+        {
+          article_id: "gdpr-art-34",
+          title: "Communication of a personal data breach to the data subject",
+          status: "missing",
+          evidence: null,
+          evidence_location: null,
+          recommendation:
+            "Yüksek riskli ihlallerde ilgili kişilere yapılacak bildirim süreci açık politika metni olarak eklenmelidir.",
+        },
+      ],
+      KVKK: [
+        {
+          article_id: "kvkk-art-4",
+          title: "Genel İlkeler",
+          status: "met",
+          evidence:
+            "Kişisel veriler belirli ve meşru amaçlarla, ölçülü şekilde işlenir ve yalnızca gerekli süre kadar saklanır.",
+          evidence_location: "paragraf 2",
+          recommendation: null,
+        },
+        {
+          article_id: "kvkk-art-10",
+          title: "Veri Sorumlusunun Aydınlatma Yükümlülüğü",
+          status: "partial",
+          evidence:
+            "Aydınlatma metninde veri işleme amacı, aktarım ve haklara ilişkin temel bilgilere yer verilir.",
+          evidence_location: "paragraf 4",
+          recommendation:
+            "Veri sorumlusunun kimliği, hukuki sebep ve başvuru kanalları daha açık biçimde detaylandırılmalıdır.",
+        },
+        {
+          article_id: "kvkk-art-12",
+          title: "Veri Güvenliğine İlişkin Yükümlülükler",
+          status: "met",
+          evidence:
+            "Şifreleme, erişim kontrolü, loglama ve düzenli güvenlik testleri uygulanmaktadır.",
+          evidence_location: "paragraf 6",
+          recommendation: null,
+        },
+        {
+          article_id: "kvkk-art-13",
+          title: "Veri Sorumlusuna Başvuru",
+          status: "missing",
+          evidence: null,
+          evidence_location: null,
+          recommendation:
+            "İlgili kişinin başvuru süresi, yöntemi ve 30 gün içinde cevap prosedürü metne eklenmelidir.",
+        },
+      ],
+    };
+
+    const selectedResults = sampleResultsByRegulation[regulation];
+    const metCount = selectedResults.filter((r) => r.status === "met").length;
+    const partialCount = selectedResults.filter((r) => r.status === "partial").length;
+    const overallScore = Math.round(((metCount + partialCount * 0.5) / selectedResults.length) * 100);
+
+    setError("");
+    setAnalysisResult({
+      regulation: regulation.toLowerCase(),
+      document_name: `sample-${regulation.toLowerCase()}-report.docx`,
+      overall_score: overallScore,
+      results: selectedResults,
+    });
+    setView("result");
+  }
+
   function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     setError("");
@@ -116,12 +213,12 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-3">
-            <button className="hidden rounded-full border border-slate-300 px-5 py-2.5 text-sm font-bold md:block">
-              Log in
-            </button>
-            <button className="rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-black text-white shadow-lg shadow-emerald-600/20 hover:bg-emerald-500">
+            <a
+              href="#upload"
+              className="rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-black text-white shadow-lg shadow-emerald-600/20 hover:bg-emerald-500"
+            >
               Get started →
-            </button>
+            </a>
           </div>
         </div>
       </nav>
@@ -152,7 +249,10 @@ export default function App() {
               >
                 Analyze document →
               </a>
-              <button className="rounded-full border border-slate-300 bg-white px-6 py-3 font-black text-slate-800 hover:border-emerald-300">
+              <button
+                onClick={handleShowSampleReport}
+                className="rounded-full border border-slate-300 bg-white px-6 py-3 font-black text-slate-800 hover:border-emerald-300"
+              >
                 View sample report
               </button>
             </div>
@@ -384,6 +484,73 @@ export default function App() {
   </div>
 )}
           </section>
+        </div>
+      </section>
+
+      <section id="how" className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-8 py-12">
+          <p className="text-xs font-black uppercase tracking-wide text-emerald-600">
+            How it works
+          </p>
+          <h2 className="mt-2 text-3xl font-black text-slate-950 md:text-4xl">
+            3-step compliance pre-assessment flow
+          </h2>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-black text-emerald-700">1. Upload</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Upload a PDF or DOCX and choose GDPR or KVKK as your target framework.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-black text-emerald-700">2. Analyze</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Traceon maps document clauses to regulation articles and extracts evidence snippets.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-black text-emerald-700">3. Improve</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Review met/partial/missing status and apply article-level recommendations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" className="bg-[#f7f8f4]">
+        <div className="mx-auto max-w-7xl px-8 py-12">
+          <p className="text-xs font-black uppercase tracking-wide text-emerald-600">
+            Features
+          </p>
+          <h2 className="mt-2 text-3xl font-black text-slate-950 md:text-4xl">
+            Core capabilities
+          </h2>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <p className="text-sm font-black text-slate-900">Regulation-agnostic core</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Same analysis flow for GDPR and KVKK, powered by selected data files.</p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <p className="text-sm font-black text-slate-900">Evidence with location</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Every finding includes evidence text and where it appears in the document.</p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <p className="text-sm font-black text-slate-900">Resilient AI flow</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Automatic retry/backoff and safe fallback mode when API quota is exceeded.</p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <p className="text-sm font-black text-slate-900">Actionable recommendations</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Article-level improvements help teams close compliance gaps faster.</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>

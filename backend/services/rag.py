@@ -7,16 +7,67 @@ from core.config import settings
 
 logger = logging.getLogger("uvicorn.error")
 
+
+def _build_document_text(doc_chunks: list) -> str:
+    """Limit prompt size to reduce quota pressure and latency."""
+    limited_chunks = doc_chunks[: settings.LLM_MAX_DOC_CHUNKS]
+    formatted_chunks = []
+    for chunk in limited_chunks:
+        chunk_text = (chunk.get("text") or "")[: settings.LLM_MAX_CHARS_PER_CHUNK]
+        formatted_chunks.append(f"[{chunk.get('location', 'unknown')}]: {chunk_text}")
+    return "\n\n".join(formatted_chunks)
+
+
+def _normalize_ai_results(ai_results: list, articles: list) -> list:
+    """Guarantee api-contract shape even when model output is imperfect."""
+    by_id = {}
+    for item in ai_results:
+        if isinstance(item, dict) and item.get("article_id"):
+            by_id[item["article_id"]] = item
+
+    normalized = []
+    for article in articles:
+        art_id = article.get("article_id")
+        art_title = article.get("title")
+        candidate = by_id.get(art_id, {})
+        status = candidate.get("status")
+        if status not in {"met", "partial", "missing"}:
+            status = "missing"
+
+        evidence = candidate.get("evidence")
+        evidence_location = candidate.get("evidence_location")
+        recommendation = candidate.get("recommendation")
+
+        if status == "missing":
+            evidence = None
+            evidence_location = None
+            if not recommendation:
+                recommendation = article.get("recommendation") or f"{art_title} gerekliliği dokümana eklenmelidir."
+        elif status == "met":
+            recommendation = None
+        elif not recommendation:
+            recommendation = f"{art_title} konusundaki açıklamalar güçlendirilmelidir."
+
+        normalized.append(
+            {
+                "article_id": art_id,
+                "title": art_title,
+                "status": status,
+                "evidence": evidence,
+                "evidence_location": evidence_location,
+                "recommendation": recommendation,
+            }
+        )
+
+    return normalized
+
 def run_rag_analysis(doc_chunks: list, articles: list) -> list:
     """
     Dokümandaki paragrafları ve regülasyon maddelerini TEK İSTEKTE
     doğrudan Gemini REST API'ye göndererek anlamsal AI analizi yapar.
     """
-    # 1. Doküman paragraflarını numaralandırarak metin haline getirelim
-    formatted_chunks = []
-    for chunk in doc_chunks:
-        formatted_chunks.append(f"[{chunk['location']}]: {chunk['text']}")
-    document_text = "\n\n".join(formatted_chunks)
+    # 1. Doküman paragraflarını prompt boyutunu kontrollü tutarak hazırlayalım
+    document_text = _build_document_text(doc_chunks)
 
     # 2. Regülasyon maddelerini hazırlayalım
     formatted_articles = []
@@ -79,82 +130,112 @@ Example format:
 """
 
     api_key = settings.GEMINI_API_KEY
-    # En stabil REST endpoints listesi
-    models_to_try = ["gemini-2.0-flash", "gemini-2.5-flash", "gemini-1.5-flash-latest"]
+    model_name = settings.LLM_MODEL
 
-    for model_name in models_to_try:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
-        
-        payload = {
-            "contents": [
-                {
-                    "parts": [
-                        {"text": prompt}
-                    ]
-                }
-            ],
-            "generationConfig": {
-                "response_mime_type": "application/json"
-            }
-        }
+    if not api_key:
+        logger.error("GEMINI_API_KEY bulunamadı, kural tabanlı yedek motor çalıştırılıyor.")
+        return run_fallback_keyword_analysis(doc_chunks, articles)
 
-        # Rate limit (429) durumunda 2 kere deneme mekanizması
-        for attempt in range(2):
-            try:
-                req = urllib.request.Request(
-                    url,
-                    data=json.dumps(payload).encode("utf-8"),
-                    headers={"Content-Type": "application/json"}
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
+    payload = {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"response_mime_type": "application/json"},
+    }
+
+    for attempt in range(settings.LLM_MAX_RETRIES):
+        try:
+            req = urllib.request.Request(
+                url,
+                data=json.dumps(payload).encode("utf-8"),
+                headers={"Content-Type": "application/json"},
+            )
+
+            with urllib.request.urlopen(req, timeout=settings.LLM_TIMEOUT_SECONDS) as response:
+                result_data = json.loads(response.read().decode("utf-8"))
+                raw_text = result_data["candidates"][0]["content"]["parts"][0]["text"].strip()
+
+                if raw_text.startswith("```"):
+                    lines = raw_text.splitlines()
+                    if lines and lines[0].startswith("```"):
+                        lines = lines[1:]
+                    if lines and lines[-1].startswith("```"):
+                        lines = lines[:-1]
+                    raw_text = "\n".join(lines).strip()
+
+                ai_results = json.loads(raw_text)
+                logger.info(f"Gemini REST API analizi ({model_name}) başarıyla tamamlandı!")
+                return _normalize_ai_results(ai_results, articles)
+
+        except urllib.error.HTTPError as http_err:
+            if http_err.code == 429 and attempt < settings.LLM_MAX_RETRIES - 1:
+                wait_seconds = settings.LLM_BACKOFF_BASE_SECONDS * (2 ** attempt)
+                logger.warning(
+                    f"Model {model_name} 429 Rate Limit aldı. {wait_seconds:.0f} saniye beklenip tekrar deneniyor... "
+                    f"(Deneme {attempt + 1})"
                 )
+                time.sleep(wait_seconds)
+                continue
 
-                # Timeout süresini 60 saniyeye çıkardık
-                with urllib.request.urlopen(req, timeout=60) as response:
-                    result_data = json.loads(response.read().decode("utf-8"))
-                    
-                    raw_text = result_data["candidates"][0]["content"]["parts"][0]["text"].strip()
-                    
-                    # Markdown temizlik
-                    if raw_text.startswith("```"):
-                        lines = raw_text.splitlines()
-                        if lines[0].startswith("```"):
-                            lines = lines[1:]
-                        if lines and lines[-1].startswith("```"):
-                            lines = lines[:-1]
-                        raw_text = "\n".join(lines).strip()
+            logger.warning(f"Model {model_name} HTTP Hatası: {http_err.code} - {http_err.reason}")
+            break
+        except Exception as e:
+            logger.warning(f"Model {model_name} Istek Hatasi: {str(e)}")
+            break
 
-                    ai_results = json.loads(raw_text)
-                    logger.info(f"Gemini REST API analizi ({model_name}) başarıyla tamamlandı!")
-                    return ai_results
-
-            except urllib.error.HTTPError as http_err:
-                if http_err.code == 429:
-                    logger.warning(f"Model {model_name} 429 Rate Limit aldı. 2 saniye beklenip tekrar deneniyor... (Deneme {attempt+1})")
-                    time.sleep(2)
-                    continue
-                else:
-                    logger.warning(f"Model {model_name} HTTP Hatası: {http_err.code} - {http_err.reason}")
-                    break
-            except Exception as e:
-                logger.warning(f"Model {model_name} Istek Hatasi: {str(e)}")
-                break
-
-    logger.error("Tüm Gemini REST API modelleri başarısız oldu, kural tabanlı yedek motor çalıştırılıyor.")
+    logger.error("Gemini REST API başarısız oldu, kural tabanlı yedek motor çalıştırılıyor.")
     return run_fallback_keyword_analysis(doc_chunks, articles)
 
 
 def run_fallback_keyword_analysis(doc_chunks: list, articles: list) -> list:
     """Yedek kural tabanlı motor"""
     results = []
+
+    normalized_chunks = []
+    for chunk in doc_chunks:
+        normalized_chunks.append(
+            {
+                "text": chunk.get("text") or "",
+                "text_lower": (chunk.get("text") or "").lower(),
+                "location": chunk.get("location"),
+            }
+        )
+
     for article in articles:
         art_id = article.get("article_id")
         art_title = article.get("title")
-        
+        art_keywords = [kw.lower() for kw in article.get("keywords", []) if isinstance(kw, str)]
+
+        best_chunk = None
+        best_hits = 0
+
+        for chunk in normalized_chunks:
+            hits = sum(1 for kw in art_keywords if kw and kw in chunk["text_lower"])
+            if hits > best_hits:
+                best_hits = hits
+                best_chunk = chunk
+
+        if best_chunk and best_hits >= 2:
+            status = "met"
+            evidence = best_chunk["text"]
+            evidence_location = best_chunk["location"]
+            recommendation = None
+        elif best_chunk and best_hits == 1:
+            status = "partial"
+            evidence = best_chunk["text"]
+            evidence_location = best_chunk["location"]
+            recommendation = f"{art_title} konusuna kısmen değinilmiştir, detaylandırılması önerilir."
+        else:
+            status = "missing"
+            evidence = None
+            evidence_location = None
+            recommendation = article.get("recommendation") or f"{art_title} gerekliliği dokümana açıkça eklenmelidir."
+
         results.append({
             "article_id": art_id,
             "title": art_title,
-            "status": "partial",
-            "evidence": doc_chunks[0]["text"] if doc_chunks else None,
-            "evidence_location": doc_chunks[0]["location"] if doc_chunks else None,
-            "recommendation": f"{art_title} konusuna kısmen değinilmiştir, detaylandırılması önerilir."
+            "status": status,
+            "evidence": evidence,
+            "evidence_location": evidence_location,
+            "recommendation": recommendation
         })
     return results
