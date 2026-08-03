@@ -6,9 +6,9 @@ Bu dokuman, iki kaynagi birlikte baz alir:
 
 ## 1) Board Snapshot (Resmi Durum)
 
-- Done: 18
+- Done: 20
 - Review: 4
-- In Progress: 2
+- In Progress: 0
 - Todo: 16
 - Product Backlog: 10
 
@@ -25,9 +25,7 @@ Asagidaki kalemler kodda gorunen kanitlara gore teknik olarak uygulanmis gorunuy
 - Hata gosterimi: `frontend/src/App.tsx` icinde `setError(...)` ve upload/analyze hata mesajlari mevcut.
 - README setup/smoke adimlari: kok `README.md` icinde backend/frontend `.env` ve smoke test adimlari var.
 
-## 3) Board Senkronizasyon Onerisi (Net)
-
-Board güncel olmayabilir denildigi icin, asagidaki kalemler board'da tekrar degerlendirilmeli:
+## 3) Board ve Repo Senkron Durumu (Net)
 
 ### Review -> Done alinabilir (repo kaniti var)
 
@@ -41,12 +39,15 @@ Board güncel olmayabilir denildigi icin, asagidaki kalemler board'da tekrar deg
 - #18 Embedding entegrasyonu: repo icinde vektor/embedding pipeline acik ve net gorunmuyor.
 - #19 Benzerlik aramasi + LLM karsilastirma: su anki akista dogrudan model analizi + fallback var, klasik benzerlik katmani net degil.
 
-### Todo'dan Done'a alinmasi degerlendirilebilir (repo kaniti var)
+### Tamamlandi ve Done'a tasindi
 
 - #28 Hata yonetimi
+- #51 Frontend'i mock backend'e baglama
+
+### Hala degerlendirme/guncelleme gerektirebilecek kalemler
+
 - #33 Sonuc ekranini sadelestirme
 - #34 Hata durumlarini kullaniciya gosterme
-- #51 Frontend'i mock backend'e baglama
 
 ### Todo/Product Backlog'da kalmali (dis bagimli veya net kanit yok)
 

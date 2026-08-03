@@ -24,7 +24,6 @@
 3. In Progress -> Review -> Done akisini aktif zorunlu hale getir.
 4. Operasyonel kartlari (video/form) ayri bir "Delivery" etiketi ile takip et.
 
-## Sprint 4 Icin Oneri
+## Bootcamp Sonrasi Gelistirme Notu
 
-- #18 (Embedding) ve #19 (Benzerlik + LLM) icin teknik tasarim notu eklenerek yeniden planlama yapilsin.
-- Sorumluluk reddi metni (#35) urunde gorunur bir bolume alinip done kriterine baglansin.
+#18 (Embedding) ve #19 (Benzerlik + LLM) kalemleri acik teknik borc olarak ele alinmali; mevcut analiz katmaninin AI + keyword-fallback gercegi korunarak, bir sonraki gelistirme asamasinda embedding tabanli benzerlik katmani ve daha acik olculebilir LLM karsilastirma akisi teknik tasarim dokumaniyla adimlandirilabilir.
