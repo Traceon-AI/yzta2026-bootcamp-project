@@ -141,52 +141,61 @@ export default function App() {
     setSelectedFile(file);
   }
 
-  async function handleAnalyze() {
-  if (!selectedFile) {
-    setError("Please upload a document before starting the analysis.");
-    return;
-  }
-
-  setError("");
-  setView("loading");
-
-  try {
-    const formData = new FormData();
-
-    formData.append("file", selectedFile);
-    formData.append("regulation", regulation.toLowerCase());
-
-    console.log("API URL:", import.meta.env.VITE_API_URL);
-    console.log("Selected file:", selectedFile);
-    console.log("Regulation:", regulation.toLowerCase());
-
-    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
-
-    const response = await fetch(`${apiUrl}/analyze`, {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      setError(data.detail?.message || data.message || "Analysis failed.");
-      setView("upload");
+  async function runAnalyze(forceFallback = false) {
+    if (!selectedFile) {
+      setError("Please upload a document before starting the analysis.");
       return;
     }
 
-    setAnalysisResult(data);
-    setView("result");
-  } catch (error) {
-    console.error("Fetch error:", error);
+    setError("");
+    setView("loading");
 
-    if (error instanceof Error) {
-    console.error(error.message);
-  }
-    setError("Unable to connect to backend.");
-    setView("upload");
+    try {
+      const formData = new FormData();
+
+      formData.append("file", selectedFile);
+      formData.append("regulation", regulation.toLowerCase());
+      formData.append("force_fallback", String(forceFallback));
+
+      console.log("API URL:", import.meta.env.VITE_API_URL);
+      console.log("Selected file:", selectedFile);
+      console.log("Regulation:", regulation.toLowerCase());
+      console.log("Force fallback:", forceFallback);
+
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+      const response = await fetch(`${apiUrl}/analyze`, {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.detail?.message || data.message || "Analysis failed.");
+        setView("upload");
+        return;
+      }
+
+      setAnalysisResult(data);
+      setView("result");
+    } catch (error) {
+      console.error("Fetch error:", error);
+
+      if (error instanceof Error) {
+        console.error(error.message);
+      }
+      setError("Unable to connect to backend.");
+      setView("upload");
+    }
   }
 
+  async function handleAnalyze() {
+    await runAnalyze(false);
+  }
+
+  async function handleAnalyzeFallback() {
+    await runAnalyze(true);
   }
 
   function resetFlow() {
@@ -360,6 +369,14 @@ export default function App() {
                 >
                   Analyze Compliance →
                 </button>
+
+                <button
+                  onClick={handleAnalyzeFallback}
+                  disabled={!fileName}
+                  className="mt-3 w-full rounded-2xl border border-amber-300 bg-amber-50 px-5 py-3 font-black text-amber-800 transition hover:bg-amber-100 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-100 disabled:text-slate-400"
+                >
+                  Fallback Test (Rule-based) →
+                </button>
               </>
             )}
 
@@ -411,6 +428,11 @@ export default function App() {
         <p className="mt-1 text-xs text-slate-500">
           Analysis completed for {analysisResult?.document_name}
         </p>
+        {analysisResult?.analysis_mode && (
+          <p className="mt-2 inline-flex rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-[11px] font-black uppercase tracking-wide text-amber-800">
+            Mode: {analysisResult.analysis_mode}
+          </p>
+        )}
       </div>
 
       <div className="rounded-2xl bg-emerald-50 px-4 py-3 text-center">

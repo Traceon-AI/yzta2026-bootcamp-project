@@ -61,11 +61,15 @@ def _normalize_ai_results(ai_results: list, articles: list) -> list:
 
     return normalized
 
-def run_rag_analysis(doc_chunks: list, articles: list) -> list:
+def run_rag_analysis(doc_chunks: list, articles: list, force_fallback: bool = False) -> tuple[list, str]:
     """
     Dokümandaki paragrafları ve regülasyon maddelerini TEK İSTEKTE
     doğrudan Gemini REST API'ye göndererek anlamsal AI analizi yapar.
     """
+    if force_fallback:
+        logger.info("Fallback analizi istemci istegiyle zorlandi.")
+        return run_fallback_keyword_analysis(doc_chunks, articles), "fallback_forced"
+
     # 1. Doküman paragraflarını prompt boyutunu kontrollü tutarak hazırlayalım
     document_text = _build_document_text(doc_chunks)
 
@@ -134,7 +138,7 @@ Example format:
 
     if not api_key:
         logger.error("GEMINI_API_KEY bulunamadı, kural tabanlı yedek motor çalıştırılıyor.")
-        return run_fallback_keyword_analysis(doc_chunks, articles)
+        return run_fallback_keyword_analysis(doc_chunks, articles), "fallback_no_api_key"
 
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
     payload = {
@@ -164,7 +168,7 @@ Example format:
 
                 ai_results = json.loads(raw_text)
                 logger.info(f"Gemini REST API analizi ({model_name}) başarıyla tamamlandı!")
-                return _normalize_ai_results(ai_results, articles)
+                return _normalize_ai_results(ai_results, articles), "ai"
 
         except urllib.error.HTTPError as http_err:
             if http_err.code == 429 and attempt < settings.LLM_MAX_RETRIES - 1:
@@ -183,7 +187,7 @@ Example format:
             break
 
     logger.error("Gemini REST API başarısız oldu, kural tabanlı yedek motor çalıştırılıyor.")
-    return run_fallback_keyword_analysis(doc_chunks, articles)
+    return run_fallback_keyword_analysis(doc_chunks, articles), "fallback_error"
 
 
 def run_fallback_keyword_analysis(doc_chunks: list, articles: list) -> list:

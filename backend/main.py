@@ -51,7 +51,8 @@ async def get_regulations():
 @app.post("/analyze")
 async def analyze_document(
     file: UploadFile = File(...),
-    regulation: str = Form(...)
+    regulation: str = Form(...),
+    force_fallback: bool = Form(False)
 ):
     # Dosya türü doğrulama
     file_extension = file.filename.split(".")[-1].lower()
@@ -82,7 +83,11 @@ async def analyze_document(
     articles = reg_data if isinstance(reg_data, list) else reg_data.get("articles", [])
     
     # 3. Adım: Modüler RAG analizini tetikle
-    results = run_rag_analysis(doc_chunks, articles)
+    results, analysis_mode = run_rag_analysis(
+        doc_chunks,
+        articles,
+        force_fallback=force_fallback,
+    )
     
     # 4. Adım: api-contract.md formülüne göre overall_score hesapla
     met_count = sum(1 for r in results if r["status"] == "met")
@@ -94,6 +99,7 @@ async def analyze_document(
     return {
         "regulation": regulation,
         "document_name": file.filename,
+        "analysis_mode": analysis_mode,
         "overall_score": overall_score,
         "results": results
     }
